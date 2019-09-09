@@ -21,11 +21,18 @@ module.exports = function() {
   }
 
   // Use the "solution(xx)" function to return data for testing.
-  var solution = function (input) {
-    const MAX_IDX = input;
-    var outputArray = [-1, input]; 
+  function solution(arg) {
 
-    return outputArray
+    const prizes = ['A Unicorn!', 'A Hug!', 'Fresh Laundry!'];
+    for (var btnNum = 0; btnNum < prizes.length; btnNum++) {
+  
+      // For each of our buttons, when the user clicks it...
+      document.getElementById(`btn-${btnNum}`).onclick = (frozenBtnNum) => {
+        return () => {
+          alert(prizes[frozenBtnNum]);
+        }
+      };
+    }
   }
 
   var retVal = solution(args);
